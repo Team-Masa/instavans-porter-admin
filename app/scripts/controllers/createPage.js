@@ -50,10 +50,6 @@ angular.module('instavansPorterAdminApp')
         markers.push(randomMarkerGenerator(5000, (createPage.form.location) ? createPage.form.location.geometry.location.lat() : 32, (createPage.form.location) ? createPage.form.location.geometry.location.lng() : 32));
       }
 
-      markers = markers.map(function(t) {
-        t.push('<img src="https://angularjs.org/img/AngularJS-small.png"></img>');
-        return t;
-      });
 
       createPage.map = {
         available: false,
@@ -65,9 +61,15 @@ angular.module('instavansPorterAdminApp')
       };
       $timeout(function() {
         createPage.map.available = true;
-        $timeout(function () {
-          var latLang = new google.maps.LatLng(createPage.map.center.x,createPage.map.center.y);
+        $timeout(function() {
+          var latLang = new google.maps.LatLng(createPage.map.center.x, createPage.map.center.y);
           window.map.panTo(latLang);
+
+          var marker = new google.maps.Marker({
+            position: window.map.getCenter(),
+            icon: './images/current.png',
+            map: window.map
+          });
         }, 100);
       }, 200);
     };
@@ -76,21 +78,21 @@ angular.module('instavansPorterAdminApp')
       console.log('Form', createPage.form);
       var form = createPage.form;
       var data = {
-        portersRequired : form.noOfPorters,
-        paymentPerPorter : form.perPersonAmount,
-        time : new Date(moment(form.time, 'hh:mm')),
-        location : {
-          lat : form.location.geometry.location.lat(),
-          lng : form.location.geometry.location.lng(),
-          description : form.location.formatted_address
+        portersRequired: form.noOfPorters,
+        paymentPerPorter: form.perPersonAmount,
+        time: new Date(moment(form.time, 'hh:mm')),
+        location: {
+          lat: form.location.geometry.location.lat(),
+          lng: form.location.geometry.location.lng(),
+          description: form.location.formatted_address
         }
       };
 
       $http.post(url + '/jobs', data)
-      .then(function(response){
-        console.log('job created:',response);
-        location.hash = '#/current-jobs';
-      });
+        .then(function(response) {
+          console.log('job created:', response);
+          location.hash = '#/current-jobs';
+        });
     };
 
   });
