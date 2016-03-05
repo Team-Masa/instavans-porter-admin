@@ -37,10 +37,16 @@
         "src/css/ngTimepicker.css"
       ]
     },
-    "ng-clustered-map":{
-      "main":[
+    "ng-clustered-map": {
+      "main": [
         "dist/ng-clustered-map.js"
       ]
     }
+  },
+  "resolutions": {
+    "angular": "^1.4.0",
+    "angular-animate": "^1.4.0",
+    "angular-sanitize": "^1.4.0",
+    "angular-touch": "^1.4.0"
   }
 }
