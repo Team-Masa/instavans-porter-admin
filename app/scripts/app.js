@@ -23,17 +23,19 @@ angular
     'Firestitch.angular-counter',
     'clustered.map'
   ])
-  .config(function ($routeProvider) {
+  .config(function($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/createPage.html',
         controller: 'createPageCtrl',
-        controllerAs: 'createPage'
+        controllerAs: 'createPage',
+        activetab: 'createPage'
       })
       .when('/current-jobs', {
         templateUrl: 'views/currentJobs.html',
         controller: 'currentJobsCtrl',
-        controllerAs: 'jobs'
+        controllerAs: 'jobs',
+        activetab: 'jobs'
       })
       .otherwise({
         redirectTo: '/'

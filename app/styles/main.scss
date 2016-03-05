@@ -98,5 +98,27 @@ body {
   text-overflow: ellipsis;
 }
 
+.header-tile{
+  text-align: center;
+  padding: 20px;
+}
+
+.header-main{
+  background: rgba(33,151,245,1);
+  color: white;
+  overflow: hidden;
+  text-decoration: none;
+}
+.header-main > a {
+    color: white;
+    text-decoration: none;
+    border-right: 1px solid black;
+}
+
+.header-main > a:hover
+{
+     text-decoration:none;
+     cursor:pointer;
+}
 @import "./createPage.scss";
 @import "./current-jobs.scss";
