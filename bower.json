@@ -14,8 +14,7 @@
     "font-awesome": "^4.5.0",
     "angular-money-directive": "^1.2.5",
     "angular-google-places-autocomplete": "^0.2.7",
-    "angular-counter": "^1.0.5",
-    "ng-clustered-map": "*"
+    "angular-counter": "^1.0.5"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"
@@ -36,8 +35,8 @@
         "src/css/ngTimepicker.css"
       ]
     },
-    "ng-clustered-map":{
-      "main":[
+    "ng-clustered-map": {
+      "main": [
         "dist/ng-clustered-map.js"
       ]
     }
