@@ -8,6 +8,6 @@
  * Controller of the instavansPorterAdminApp
  */
 angular.module('instavansPorterAdminApp')
-  .controller('MainCtrl', function () {
-    
+  .controller('createPageCtrl', function () {
+
   });

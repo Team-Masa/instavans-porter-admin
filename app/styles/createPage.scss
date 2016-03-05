@@ -1,0 +1,31 @@
+body{
+  font-family: helvetica,sans-serif;
+  background: url('/images/bgBlurred.jpg') no-repeat;
+  background-size: cover;
+}
+
+.job-create-title{
+  text-align: center;
+  padding: 20px;
+}
+.job-add-form{
+  box-shadow: 0 0 5px gray;
+  background: white;
+}
+.form-item{
+  padding:10px;
+}
+.form-label-title{
+  font-size: 16px;
+  font-weight: bold;
+}
+.form-label-desc{
+
+}
+.form-input{
+  width: 100%;
+  text-align: center;
+}
+.total-amount{
+  font-weight: normal;
+}
