@@ -18,7 +18,9 @@ angular
     'ngTouch',
     'jkuri.timepicker',
     'fiestah.money',
-    'google.places'
+    'google.places',
+    'Firestitch.angular-counter',
+    'clustered.map'
   ])
   .config(function ($routeProvider) {
     $routeProvider
