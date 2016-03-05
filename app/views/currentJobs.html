@@ -5,7 +5,7 @@
 
   <div class="container current-jobs__container" ng-repeat="job in jobs.pending">
     <div class="row current-jobs__small-details" ng-style="jobs.styleFromJob(job)">
-      <div class="col-md-3">
+      <div class="col-md-1">
         Id : {{job.jobId}}
       </div>
       <div class="col-md-3">
@@ -14,15 +14,15 @@
       <div class="col-md-3">
         Payment(Per porter) : {{job.paymentPerPorter || 'n/a'}}
       </div>
-      <div class="col-md-3">
-        {{job.location.description}}
+      <div class="col-md-5 truncate">
+         {{job.location.description}}
       </div>
     </div>
     <!-- <hr class="current-jobs__hr" /> -->
     <div class="row current-jobs__row-title">
       <div class="col-md-3">
         <div class="row">
-          Time left
+          Job starts
         </div>
         <div class="row current-jobs__row-main__time-left">
           {{job.timeTillStart}}

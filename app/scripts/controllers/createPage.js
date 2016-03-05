@@ -8,8 +8,9 @@
  * Controller of the instavansPorterAdminApp
  */
 angular.module('instavansPorterAdminApp')
-  .controller('createPageCtrl', function($timeout) {
+  .controller('createPageCtrl', function($timeout, $http) {
     var createPage = this;
+    var url = window.appUrl || 'http://localhost:1337';
 
     createPage.form = {
       noOfPorters: 1
@@ -73,6 +74,23 @@ angular.module('instavansPorterAdminApp')
 
     createPage.createJob = function() {
       console.log('Form', createPage.form);
+      var form = createPage.form;
+      var data = {
+        portersRequired : form.noOfPorters,
+        paymentPerPorter : form.perPersonAmount,
+        time : new Date(moment(form.time, 'hh:mm')),
+        location : {
+          lat : form.location.geometry.location.lat(),
+          lng : form.location.geometry.location.lng(),
+          description : form.location.formatted_address
+        }
+      };
+
+      $http.post(url + '/jobs', data)
+      .then(function(response){
+        console.log('job created:',response);
+        location.hash = '#/current-jobs';
+      });
     };
 
   });
