@@ -37,6 +37,11 @@ angular
         controllerAs: 'jobs',
         activetab: 'jobs'
       })
+      .when('/analytics', {
+        templateUrl: 'views/analytics.html',
+        controller: 'analyticsCtrl',
+        activetab: 'analytics'
+      })
       .otherwise({
         redirectTo: '/'
       });
