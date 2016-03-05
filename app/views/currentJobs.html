@@ -55,18 +55,15 @@
   </div>
 
   <div class="container current-jobs__container" ng-repeat="job in jobs.fulfilled">
-    <div class="row current-jobs__small-details" ng-style="jobs.styleFromJob(job)">
-      <div class="col-md-3">
+    <div class="row current-jobs__small-details" ng-style="{'background-color' : '#BDBDBD'}">
+      <div class="col-md-4">
         Id : {{job.jobId}}
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
         {{job.prettyTime}}
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
         Payment(Per porter) : {{job.paymentPerPorter || 'n/a'}}
-      </div>
-      <div class="col-md-3">
-        {{job.location.description}}
       </div>
     </div>
     <!-- <hr class="current-jobs__hr" /> -->
