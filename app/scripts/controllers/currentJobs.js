@@ -5,11 +5,6 @@ angular.module('instavansPorterAdminApp')
       jobs.current = [];
       var url = window.appUrl || 'http://localhost:1337';
       var socket = io(url);
-      socket.on('job-update', function(newJobs) {
-        jobs.current = newJobs;
-        console.log(jobs.current);
-        $scope.$digest();
-      });
 
       jobs.styleFromJob = function(job){
         var backgroundColor = 'white';
@@ -44,9 +39,15 @@ angular.module('instavansPorterAdminApp')
         });
       };
 
+      var segregateJobs = function(){
+        jobs.fulfilled = jobs.current.filter(job => job.portersReached === job.portersRequired);
+        jobs.pending = jobs.current.filter(job => job.portersReached !== job.portersRequired);
+      };
+
       var processJobs = function(){
         processJobTime();
         processPorters();
+        segregateJobs();
       };
 
       $http({
@@ -56,6 +57,12 @@ angular.module('instavansPorterAdminApp')
       .then(function(response){
         jobs.current = response.data;
         processJobs();
+      });
+
+      socket.on('job-update', function(newJobs) {
+        jobs.current = newJobs;
+        processJobs();
+        $scope.$digest();
       });
       $timeout(processJobTime, 1000 * 60);
   });
