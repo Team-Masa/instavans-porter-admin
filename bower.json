@@ -13,7 +13,8 @@
     "ngTimepickerNoDep": "*",
     "font-awesome": "^4.5.0",
     "angular-money-directive": "^1.2.5",
-    "angular-google-places-autocomplete": "^0.2.7"
+    "angular-google-places-autocomplete": "^0.2.7",
+    "moment": "~2.11.2"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"

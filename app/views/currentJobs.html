@@ -1,5 +1,8 @@
 <div class="container-fluid">
-<div class="container current-jobs__container">
-  {{jobs.current}}
-</div>
+  <div class="container current-jobs__header">
+    Current Jobs :
+  </div>
+  <div class="container current-jobs__container" ng-repeat="job in jobs.current" ng-style="jobs.styleFromJob(job)">
+    {{job}}
+  </div>
 </div>
