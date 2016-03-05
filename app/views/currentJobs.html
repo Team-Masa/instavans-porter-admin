@@ -1,0 +1,139 @@
+<div class="container-fluid current-jobs__header">
+  Current Jobs
+</div>
+<div class="container-fluid">
+
+  <div class="container current-jobs__container" ng-repeat="job in jobs.pending">
+    <div class="row current-jobs__small-details" ng-style="jobs.styleFromJob(job)">
+      <div class="col-md-3">
+        Id : {{job.jobId}}
+      </div>
+      <div class="col-md-3">
+        {{job.prettyTime}}
+      </div>
+      <div class="col-md-3">
+        Payment(Per porter) : {{job.paymentPerPorter || 'n/a'}}
+      </div>
+      <div class="col-md-3">
+        {{job.location.description}}
+      </div>
+    </div>
+    <!-- <hr class="current-jobs__hr" /> -->
+    <div class="row current-jobs__row-title">
+      <div class="col-md-3">
+        <div class="row">
+          Time left
+        </div>
+        <div class="row current-jobs__row-main__time-left">
+          {{job.timeTillStart}}
+        </div>
+      </div>
+
+      <div class="col-md-2 col-sm-6">
+        <div class="row">Porters required</div>
+        <div class="row current-jobs__row-main"><i class="fa fa-users"></i>&nbsp;{{job.portersRequired}}</div>
+      </div>
+      <div class="col-md-2 col-sm-6">
+        <div class="row">Accepted</div>
+        <div class="row current-jobs__row-main"> <i class="fa fa-check"></i>&nbsp;{{job.portersAccepted}}</div>
+
+      </div>
+      <div class="col-md-2 col-sm-6">
+        <div class="row">On route</div>
+        <div class="row current-jobs__row-main"> <i class="fa fa-car"></i>&nbsp;{{job.portersArriving}}</div>
+
+      </div>
+      <div class="col-md-2 col-sm-6">
+        <div class="row">Arrived</div>
+        <div class="row current-jobs__row-main"> <i class="fa fa-thumb-tack"></i>&nbsp;{{job.portersReached}}</div>
+
+      </div>
+
+      <div class="col-md-1">
+        <div class="row current-jobs__row-plus">
+          <i class="fa fa-plus" ng-hide="job.expanded" ng-click="job.expanded = !job.expanded"></i>
+          <i class="fa fa-times" ng-show="job.expanded" ng-click="job.expanded = !job.expanded"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="row current-jobs__porters" ng-show="job.expanded">
+      <hr class="current-jobs__hr" />
+      <h4>Porter Details</h4>
+      <div class="row" ng-repeat="porter in job.porters">
+        <div class="col-sm-2">
+          Porter Id: {{porter.porterId}}
+        </div>
+        <div class="col-sm-5">
+          Name: {{jobs.getPorter(porter.porterId).name}}
+        </div>
+        <div class="col-sm-5">
+          Time of Acceptance: {{jobs.prettifyTime(porter.startTime)}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="container current-jobs__container" ng-repeat="job in jobs.fulfilled">
+    <div class="row current-jobs__small-details" ng-style="{'background-color' : '#BDBDBD'}">
+      <div class="col-md-4">
+        Id : {{job.jobId}}
+      </div>
+      <div class="col-md-4">
+        {{job.prettyTime}}
+      </div>
+      <div class="col-md-4">
+        Payment(Per porter) : {{job.paymentPerPorter || 'n/a'}}
+      </div>
+    </div>
+    <div class="row current-jobs__row-title">
+      <div class="col-md-4">
+        <div class="row">
+          Time of completion
+        </div>
+        <div class="row current-jobs__row-main">
+          {{job.prettyTime}}
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="row">
+          Location
+        </div>
+        <div class="row current-jobs__row-main">
+          {{job.location.description}}
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="row">
+          Total Payment
+        </div>
+        <div class="row current-jobs__row-main">
+          {{(job.porters.length * job.paymentPerPorter) || 'n/a'}}
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="row current-jobs__row-plus">
+          <i class="fa fa-plus" ng-hide="job.expanded" ng-click="job.expanded = !job.expanded"></i>
+          <i class="fa fa-times" ng-show="job.expanded" ng-click="job.expanded = !job.expanded"></i>
+        </div>
+      </div>
+    </div>
+    <div class="row current-jobs__porters" ng-show="job.expanded">
+      <hr class="current-jobs__hr" />
+      <h4>Porter Details</h4>
+      <div class="row" ng-repeat="porter in job.porters">
+        <div class="col-sm-2">
+          Porter Id: {{porter.porterId}}
+        </div>
+        <div class="col-sm-5">
+          Name: {{jobs.getPorter(porter.porterId).name}}
+        </div>
+        <div class="col-sm-5">
+          Time of Arrival: {{jobs.prettifyTime(porter.endTime)}}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

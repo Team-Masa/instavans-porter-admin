@@ -28,7 +28,6 @@
 
   <script src="https://maps.googleapis.com/maps/api/js?libraries=visualization,drawing,geometry,places"></script>
   <script src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js"></script>
-
   <!-- build:js(.) scripts/vendor.js -->
   <!-- bower:js -->
   <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -44,15 +43,20 @@
   <script src="bower_components/angular-money-directive/dist/angular-money-directive.js"></script>
   <script src="bower_components/angular-google-places-autocomplete/src/autocomplete.js"></script>
   <script src="bower_components/angular-google-places-autocomplete/dist/autocomplete.min.js"></script>
+  <script src="bower_components/moment/moment.js"></script>
   <script src="bower_components/angular-counter/counter.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
   <!-- build:js({.tmp,app}) scripts/scripts.js -->
   <script src="scripts/libs/ng-clustered-map.js"></script>
+  <script src="scripts/sails.io.js" autoConnect="false"></script>
+  <script src="scripts/socket-script.js"></script>
   <script src="scripts/app.js"></script>
   <script src="scripts/controllers/createPage.js"></script>
+  <script src="scripts/controllers/currentJobs.js"></script>
   <!-- endbuild -->
+
 </body>
 
 </html>

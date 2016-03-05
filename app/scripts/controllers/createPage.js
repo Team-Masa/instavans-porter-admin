@@ -72,7 +72,7 @@ angular.module('instavansPorterAdminApp')
     };
 
     createPage.createJob = function() {
-      console.log('Form', createPage.form, createPage.map);
+      console.log('Form', createPage.form);
     };
 
   });
