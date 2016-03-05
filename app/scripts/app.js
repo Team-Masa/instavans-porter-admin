@@ -15,7 +15,10 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'jkuri.timepicker',
+    'fiestah.money',
+    'google.places'
   ])
   .config(function ($routeProvider) {
     $routeProvider
