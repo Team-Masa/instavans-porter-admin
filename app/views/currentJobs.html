@@ -111,12 +111,12 @@
       </div>
       <div class="col-md-2">
         <div class="row current-jobs__row-plus">
-          <i class="fa fa-plus" ng-hide="job.expanded" ng-click="job.expanded = !job.expanded"></i>
-          <i class="fa fa-times" ng-show="job.expanded" ng-click="job.expanded = !job.expanded"></i>
+          <i class="fa fa-plus" ng-hide="jobs.jobMetadata[job.jobId]" ng-click="jobs.jobMetadata[job.jobId] = !jobs.jobMetadata[job.jobId]"></i>
+          <i class="fa fa-times" ng-show="jobs.jobMetadata[job.jobId]" ng-click="jobs.jobMetadata[job.jobId] = !jobs.jobMetadata[job.jobId]"></i>
         </div>
       </div>
     </div>
-    <div class="row current-jobs__porters" ng-show="job.expanded">
+    <div class="row current-jobs__porters" ng-show="jobs.jobMetadata[job.jobId]">
       <hr class="current-jobs__hr" />
       <h4>Porter Details</h4>
       <div class="row" ng-repeat="porter in job.porters">

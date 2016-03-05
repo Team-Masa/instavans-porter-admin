@@ -6,7 +6,7 @@ angular.module('instavansPorterAdminApp')
     var url = window.appUrl || 'http://localhost:1337';
     var socket = io(url);
     var allPorters = [];
-
+    jobs.jobMetadata = {};
     jobs.styleFromJob = function (job) {
       var backgroundColor = 'white';
       var portersAccepted = job.porters.length;
@@ -47,7 +47,12 @@ angular.module('instavansPorterAdminApp')
     };
 
     var segregateJobs = function () {
-      jobs.fulfilled = jobs.current.filter(job => job.portersReached === job.portersRequired);
+      jobs.fulfilled = jobs.current.filter(job => job.portersReached === job.portersRequired).sort((a, b)=>{
+        if(new Date(a.time) < new Date(b.time)){
+          return 1;
+        }
+        return -1;
+      });
       jobs.pending = jobs.current.filter(job => job.portersReached !== job.portersRequired);
     };
 
