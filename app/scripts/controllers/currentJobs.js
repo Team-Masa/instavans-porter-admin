@@ -6,7 +6,7 @@ angular.module('instavansPorterAdminApp')
     var url = window.appUrl || 'http://localhost:1337';
     var socket = io(url);
     var allPorters = [];
-
+    jobs.jobMetadata = {};
     jobs.styleFromJob = function (job) {
       var backgroundColor = 'white';
       var portersAccepted = job.porters.length;
