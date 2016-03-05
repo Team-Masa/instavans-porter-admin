@@ -25,6 +25,11 @@ angular
         controller: 'createPageCtrl',
         controllerAs: 'createPage'
       })
+      .when('/current-jobs', {
+        templateUrl: 'views/currentJobs.html',
+        controller: 'currentJobsCtrl',
+        controllerAs: 'jobs'
+      })
       .otherwise({
         redirectTo: '/'
       });
