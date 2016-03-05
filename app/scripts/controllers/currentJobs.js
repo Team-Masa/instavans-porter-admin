@@ -47,7 +47,12 @@ angular.module('instavansPorterAdminApp')
     };
 
     var segregateJobs = function () {
-      jobs.fulfilled = jobs.current.filter(job => job.portersReached === job.portersRequired);
+      jobs.fulfilled = jobs.current.filter(job => job.portersReached === job.portersRequired).sort((a, b)=>{
+        if(new Date(a.time) < new Date(b.time)){
+          return 1;
+        }
+        return -1;
+      });
       jobs.pending = jobs.current.filter(job => job.portersReached !== job.portersRequired);
     };
 
