@@ -25,26 +25,7 @@
   <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-  <div class="header-main">
-    <a href="#/" class="col-xs-4">
-      <div class="header-tile">
-        POST JOBS
-      </div>
-      <div ng-class="{active-tab: $route.current.activetab == 'createPage'}"></div>
-    </a>
-    <a href="#/current-jobs" class="col-xs-4">
-      <div class="header-tile">
-        TRACK JOBS
-      </div>
-        <div ng-class="{active-tab: $route.current.activetab == 'jobs'}"></div>
-    </a>
-    <a href="#/analytics" class="col-xs-4">
-      <div class="header-tile">
-        ANALYTICS
-      </div>
-        <div ng-class="{active-tab: $route.current.activetab == 'analytics'}"></div>
-    </a>
-  </div>
+
   <div ng-view=""></div>
 
   <script src="https://maps.googleapis.com/maps/api/js?libraries=visualization,drawing,geometry,places"></script>
