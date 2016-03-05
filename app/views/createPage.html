@@ -1,11 +1,10 @@
 <div class="container-fluid">
-<div class="job-create-title row">
-  Create Job Form
-</div>
+  <div class="job-create-title row">
+    Create Job Form
+  </div>
 
   <div class="job-add-form container">
-
-    <div class="form-item col-sm-6">
+    <div class="form-item col-sm-12">
       <div class="form-label-title">
         Job location
       </div>
@@ -14,8 +13,7 @@
       </div>
       <input g-places-autocomplete ng-model="createPage.form.location" options="createPage.autocompleteOptions" force-selection="true" type="text" name="location" class="form-input" />
     </div>
-
-    <div class="form-item col-sm-6">
+    <div class="form-item col-sm-7 col-xs-12">
       <div class="form-label-title">
         Time
       </div>
@@ -25,36 +23,46 @@
       <ng-timepicker ng-model="createPage.form.time" show-meridian="true" init-time="09:00" theme="red"></ng-timepicker>
     </div>
 
-    <div class="form-item col-sm-6">
+    <div class="form-item col-sm-5 col-xs-12">
       <div class="form-label-title">
         No of porters
       </div>
       <div class="form-label-desc">
         The total number of porters required
       </div>
-      <input type="text" ng-model="createPage.form.noOfPorters" name="noofporter" class="form-input" />
+      <div fs-counter value="createPage.form.noOfPorters" data-min="0" data-max="100" data-step="1" data-width="130px"></div>
     </div>
-
-    <div class="form-item col-sm-6">
+    <div class="form-item col-xs-6">
       <div class="form-label-title">
-        Amount
+        Amount per porter
       </div>
       <div class="form-label-desc">
-        The amount that will be paid to each porter
       </div>
-      <input type="text" name="amount" ng-model="createPage.form.perPersonAmount" money class="form-input" />
+      <input type="text" name="amount" ng-model="createPage.form.perPersonAmount" money class="col-xs-7" />
+      <span class="col-xs-5"> X {{createPage.form.noOfPorters}}</span>
+    </div>
+    <div class="form-item col-xs-1">
+      <div class="form-label-title">
+        &nbsp;
+      </div>
+      <div class="form-label-desc">
+      </div>
+      =
+    </div>
+    <div class="form-item col-xs-5">
+      <div class="form-label-title">
+        Total Amount
+      </div>
+      <div class="form-label-desc">
+      </div>
+      <div class="total-amount">Rs {{ createPage.form.perPersonAmount * createPage.form.noOfPorters || 0}}</div>
     </div>
 
     <div class="form-item col-xs-12">
-      <div class="form-label-title">
-        Total Amount <span class="total-amount">Rs {{ createPage.form.perPersonAmount * createPage.form.noOfPorters || 0}}</span>
-      </div>
+      <input class="btn btn-primary" type="button" value="create" ng-click="createPage.createJob()" />
     </div>
-
-
-    <div class="form-item">
-      <input class="btn btn-primary" type="button" value="create" ng-click="createPage.createJob()"/>
-    </div>
-
+  </div>
+  <div class="container map-view">
+    <clustered-map markers="createPage.map.markers" center="createPage.map.center" ></clustered-map>
   </div>
 </div>
