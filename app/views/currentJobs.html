@@ -1,7 +1,8 @@
+<div class="container-fluid current-jobs__header">
+  Current Jobs
+</div>
 <div class="container-fluid">
-  <div class="container current-jobs__header">
-    Current Jobs :
-  </div>
+
   <div class="container current-jobs__container" ng-repeat="job in jobs.pending">
     <div class="row current-jobs__small-details" ng-style="jobs.styleFromJob(job)">
       <div class="col-md-3">
@@ -20,38 +21,35 @@
     <!-- <hr class="current-jobs__hr" /> -->
     <div class="row current-jobs__row-title">
       <div class="col-md-4">
-        Time left
+        <div class="row">
+          Time left
+        </div>
+        <div class="row current-jobs__row-main__time-left">
+          {{job.timeTillStart}}
+        </div>
       </div>
-      <div class="col-md-2">
-        Porters required
+
+      <div class="col-md-2 col-sm-6">
+        <div class="row">Porters required</div>
+        <div class="row current-jobs__row-main"><i class="fa fa-users"></i>&nbsp;{{job.portersRequired}}</div>
       </div>
-      <div class="col-md-2">
-        Accepted
+      <div class="col-md-2 col-sm-6">
+        <div class="row">Accepted</div>
+        <div class="row current-jobs__row-main"> <i class="fa fa-check"></i>&nbsp;{{job.portersAccepted}}</div>
+
       </div>
-      <div class="col-md-2">
-        On route
+      <div class="col-md-2 col-sm-6">
+        <div class="row">On route</div>
+        <div class="row current-jobs__row-main"> <i class="fa fa-car"></i>&nbsp;{{job.portersArriving}}</div>
+
       </div>
-      <div class="col-md-2">
-        Arrived
-      </div>
-    </div>
-    <div class="row current-jobs__row-main">
-      <div class="col-md-4 current-jobs__row-main__time-left">
-        {{job.timeTillStart}}
-      </div>
-      <div class="col-md-2">
-        <i class="fa fa-users"></i>&nbsp;{{job.portersRequired}}
-      </div>
-      <div class="col-md-2">
-        <i class="fa fa-check"></i>&nbsp;{{job.portersAccepted}}
-      </div>
-      <div class="col-md-2">
-        <i class="fa fa-car"></i>&nbsp;{{job.portersArriving}}
-      </div>
-      <div class="col-md-2">
-        <i class="fa fa-thumb-tack"></i>&nbsp;{{job.portersReached}}
+      <div class="col-md-2 col-sm-6">
+        <div class="row">Arrived</div>
+        <div class="row current-jobs__row-main"> <i class="fa fa-thumb-tack"></i>&nbsp;{{job.portersReached}}</div>
+
       </div>
     </div>
+
   </div>
 
   <div class="container current-jobs__container" ng-repeat="job in jobs.fulfilled">
@@ -69,25 +67,30 @@
     <!-- <hr class="current-jobs__hr" /> -->
     <div class="row current-jobs__row-title">
       <div class="col-md-4">
-        Time of completion
+        <div class="row">
+          Time of completion
+        </div>
+        <div class="row current-jobs__row-main">
+          {{job.prettyTime}}
+        </div>
       </div>
       <div class="col-md-4">
-        Location
+        <div class="row">
+          Location
+        </div>
+        <div class="row current-jobs__row-main">
+          {{job.location.description}}
+        </div>
       </div>
       <div class="col-md-4">
-        Total Payment
+        <div class="row">
+          Total Payment
+        </div>
+        <div class="row current-jobs__row-main">
+          {{(job.porters.length * job.paymentPerPorter) || 'n/a'}}
+        </div>
       </div>
     </div>
-    <div class="row current-jobs__row-main">
-      <div class="col-md-4 current-jobs__row-main__time-left">
-        {{job.prettyTime}}
-      </div>
-      <div class="col-md-4">
-        {{job.location.description}}
-      </div>
-      <div class="col-md-4">
-        {{(job.porters.length * job.paymentPerPorter) || 'n/a'}}
-      </div>
-    </div>
+
   </div>
 </div>

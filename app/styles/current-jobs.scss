@@ -1,4 +1,12 @@
 .current-jobs {
+
+  &__header {
+    background-color: #37474F;
+    color: white;
+    text-align: center;
+    font-size: 2em;
+    box-shadow: 0 3px 13px 0 black;
+  }
   &__container {
     margin-top: 10px;
     padding-top: 0px;
