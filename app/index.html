@@ -8,6 +8,9 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/ngTimepickerNoDep/src/css/ngTimepicker.css" />
+    <link rel="stylesheet" href="bower_components/angular-google-places-autocomplete/src/autocomplete.css" />
+    <link rel="stylesheet" href="bower_components/angular-google-places-autocomplete/dist/autocomplete.min.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -21,6 +24,7 @@
 
     <div ng-view=""></div>
 
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -32,6 +36,10 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/ngTimepickerNoDep/src/js/ngTimepicker.js"></script>
+    <script src="bower_components/angular-money-directive/dist/angular-money-directive.js"></script>
+    <script src="bower_components/angular-google-places-autocomplete/src/autocomplete.js"></script>
+    <script src="bower_components/angular-google-places-autocomplete/dist/autocomplete.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
