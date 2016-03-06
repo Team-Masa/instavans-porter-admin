@@ -32,6 +32,14 @@ angular.module('instavansPorterAdminApp')
         jobsPerDay.unshift('No. of jobs');
         workersLatePerJob.unshift('Porters late per job');
 
+        $scope.map = {
+          markers : data.map(job => [job.location.lat, job.location.lng, 1]),
+          center : {
+            y : 77.7137305999999,
+            x : 13.2417155
+          }
+        };
+
         var chart1 = c3.generate({
           bindto: '#chart',
           data: {
