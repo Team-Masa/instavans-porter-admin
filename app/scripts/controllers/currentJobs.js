@@ -26,7 +26,7 @@ angular.module('instavansPorterAdminApp')
       return moment(dateTime).format('h:mm a');
     };
 
-    jobs.getPorter = function(porterId) {
+    jobs.getPorter = function (porterId) {
       return allPorters.filter(porter => porter.porterId === porterId)[0] || {};
     };
 
@@ -47,8 +47,8 @@ angular.module('instavansPorterAdminApp')
     };
 
     var segregateJobs = function () {
-      jobs.fulfilled = jobs.current.filter(job => job.portersReached === job.portersRequired).sort((a, b)=>{
-        if(new Date(a.time) < new Date(b.time)){
+      jobs.fulfilled = jobs.current.filter(job => job.portersReached === job.portersRequired).sort((a, b) => {
+        if (new Date(a.time) < new Date(b.time)) {
           return 1;
         }
         return -1;
@@ -60,6 +60,12 @@ angular.module('instavansPorterAdminApp')
       processJobTime();
       processPorters();
       segregateJobs();
+    };
+
+    jobs.pad = function(n, width, z) {
+      z = z || '0';
+      n = n + '';
+      return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
     };
 
     $http({
