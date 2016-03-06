@@ -79,11 +79,14 @@
         <div class="col-sm-2">
           Porter Id: {{porter.porterId}}
         </div>
-        <div class="col-sm-5">
+        <div class="col-sm-3">
           Name: {{jobs.getPorter(porter.porterId).name}}
         </div>
-        <div class="col-sm-5">
-          Time of Acceptance: {{jobs.prettifyTime(porter.startTime)}}
+        <div class="col-sm-3">
+          Contact: +123456789
+        </div>
+        <div class="col-sm-4">
+          ETA: {{porter.eta || ''}}
         </div>
       </div>
     </div>
@@ -115,7 +118,7 @@
         <div class="row">
           Location
         </div>
-        <div class="row current-jobs__row-main">
+        <div class="row current-jobs__row-main__time-left">
           {{job.location.description}}
         </div>
       </div>
@@ -141,11 +144,14 @@
         <div class="col-sm-2">
           Porter Id: {{porter.porterId}}
         </div>
-        <div class="col-sm-5">
+        <div class="col-sm-3">
           Name: {{jobs.getPorter(porter.porterId).name}}
         </div>
-        <div class="col-sm-5">
-          Time of Arrival: {{jobs.prettifyTime(porter.endTime)}}
+        <div class="col-sm-3">
+          Contact: +123456789
+        </div>
+        <div class="col-sm-4">
+          Time of Acceptance: {{jobs.prettifyTime(porter.startTime)}}
         </div>
       </div>
     </div>
