@@ -67,7 +67,7 @@
       <div class="col-md-1">
         <div class="row current-jobs__row-plus">
           <i class="fa fa-plus" ng-show="job.expanded" ng-click="job.expanded = !job.expanded"></i>
-          <i class="fa fa-times" ng-hide="job.expanded" ng-click="job.expanded = !job.expanded"></i>
+          <i class="fa fa-angle-up" ng-hide="job.expanded" ng-click="job.expanded = !job.expanded"></i>
         </div>
       </div>
     </div>
@@ -75,18 +75,21 @@
     <div class="row current-jobs__porters" ng-hide="job.expanded">
       <hr class="current-jobs__hr" />
       <h4>Porter Details</h4>
-      <div class="row" ng-repeat="porter in job.porters">
+      <div class="row current-jobs__porter-row" ng-repeat="porter in job.porters">
         <div class="col-xs-2">
           Porter Id: {{jobs.pad(porter.porterId, 4)}}
         </div>
-        <div class="col-xs-3">
+        <div class="col-xs-2">
           Name: {{jobs.getPorter(porter.porterId).name}}
         </div>
         <div class="col-xs-3">
           Contact: +123456789
         </div>
-        <div class="col-xs-4">
+        <div class="col-xs-3">
           ETA: {{porter.eta || ''}}
+        </div>
+        <div class="col-xs-2">
+          {{jobs.getStatusOfPorter(porter)}}
         </div>
       </div>
     </div>
@@ -133,7 +136,7 @@
       <div class="col-md-2">
         <div class="row current-jobs__row-plus">
           <i class="fa fa-plus" ng-hide="jobs.jobMetadata[job.jobId]" ng-click="jobs.jobMetadata[job.jobId] = !jobs.jobMetadata[job.jobId]"></i>
-          <i class="fa fa-times" ng-show="jobs.jobMetadata[job.jobId]" ng-click="jobs.jobMetadata[job.jobId] = !jobs.jobMetadata[job.jobId]"></i>
+          <i class="fa fa-angle-up" ng-show="jobs.jobMetadata[job.jobId]" ng-click="jobs.jobMetadata[job.jobId] = !jobs.jobMetadata[job.jobId]"></i>
         </div>
       </div>
     </div>

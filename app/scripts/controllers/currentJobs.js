@@ -46,6 +46,16 @@ angular.module('instavansPorterAdminApp')
       });
     };
 
+    jobs.getStatusOfPorter = function(porter){
+      if(porter.endTime){
+        return 'Arrived';
+      }
+      if(porter.startTime){
+        return 'On route';
+      }
+      return 'Accepted';
+    };
+
     var segregateJobs = function () {
       jobs.fulfilled = jobs.current.filter(job => job.portersReached === job.portersRequired).sort((a, b) => {
         if (new Date(a.time) < new Date(b.time)) {
