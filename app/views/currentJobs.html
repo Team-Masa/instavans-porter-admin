@@ -21,7 +21,7 @@
   <div class="container current-jobs__container" ng-repeat="job in jobs.pending">
     <div class="row current-jobs__small-details" ng-style="jobs.styleFromJob(job)">
       <div class="col-md-1">
-        Id : {{job.jobId}}
+        Id : {{jobs.pad(job.jobId, 5)}}
       </div>
       <div class="col-md-3">
         {{job.prettyTime}}
@@ -77,7 +77,7 @@
       <h4>Porter Details</h4>
       <div class="row" ng-repeat="porter in job.porters">
         <div class="col-xs-2">
-          Porter Id: {{porter.porterId}}
+          Porter Id: {{jobs.pad(porter.porterId, 4)}}
         </div>
         <div class="col-xs-3">
           Name: {{jobs.getPorter(porter.porterId).name}}
@@ -96,7 +96,7 @@
   <div class="container current-jobs__container" ng-repeat="job in jobs.fulfilled">
     <div class="row current-jobs__small-details" ng-style="{'background-color' : '#BDBDBD'}">
       <div class="col-md-4">
-        Id : {{job.jobId}}
+        Id : {{jobs.pad(job.jobId, 5)}}
       </div>
       <div class="col-md-4">
         {{job.prettyTime}}
@@ -142,7 +142,7 @@
       <h4>Porter Details</h4>
       <div class="row" ng-repeat="porter in job.porters">
         <div class="col-sm-2">
-          Porter Id: {{porter.porterId}}
+          Porter Id: {{jobs.pad(porter.porterId, 4)}}
         </div>
         <div class="col-sm-3">
           Name: {{jobs.getPorter(porter.porterId).name}}
